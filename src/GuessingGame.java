@@ -92,10 +92,12 @@ public class GuessingGame
 					 * And yes, I did HAVE to use humor somewhere
 					 */
 					System.out.println("gg m8 #rekt");
+					kbd.close();
 					System.exit(0);
 				}
 				if (response == 'n') {
 					System.out.println("You're such a liar!");
+					kbd.close();
 				}
 			}
 		}
