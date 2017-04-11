@@ -98,6 +98,7 @@ public class GuessingGame
 				if (response == 'n') {
 					System.out.println("You're such a liar!");
 					kbd.close();
+					System.exit(0);
 				}
 			}
 		}
