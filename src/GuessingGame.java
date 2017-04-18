@@ -9,7 +9,7 @@ public class GuessingGame
 		 */
 		
 		System.out.println("Choose a number between 1 and 100...");
-		System.out.println("press any 'y', then enter when you've chosen one.");
+		System.out.println("Press any letter, then enter when you've chosen one.");
 		
 		//Variables
 		
