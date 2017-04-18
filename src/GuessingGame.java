@@ -78,6 +78,31 @@ public class GuessingGame
 					minThreshold = midThreshold;
 				}
 			}
+			
+			/*
+			 * Only do stuff below this on the last two guesses
+			 * 
+			 * Guess the bottom number
+			 */
+			
+			if (maxThreshold - minThreshold == 1) {
+				System.out.println("Is your number " + minThreshold + "? (press y/n)");
+				response = kbd.next().charAt(0);
+				if (response == 'y') {
+					System.out.println("It took me " + numberOfTries + " guesses");
+					/*
+					 * Tell the user good game...
+					 * And yes, I did HAVE to use humor somewhere
+					 */
+					System.out.println("gg m8 #rekt");
+					kbd.close();
+					System.exit(0);
+				} else {
+					midThreshold += 1;
+					minThreshold += 1;
+				}
+			}
+			
 			numberOfTries++;
 			
 			// This chunk runs when it thinks that it knows the answer
