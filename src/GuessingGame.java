@@ -66,7 +66,7 @@ public class GuessingGame
 					minThreshold = midThreshold;
 				}
 				if (response == 'n') {
-					maxThreshold = midThreshold;
+					maxThreshold = midThreshold - 1;
 				}
 			} else {
 				System.out.println("Is your number less than or equal to " + midThreshold + "? (press y/n)");
@@ -75,9 +75,11 @@ public class GuessingGame
 					maxThreshold = midThreshold;
 				}
 				if (response == 'n') {
-					minThreshold = midThreshold;
+					minThreshold = midThreshold + 1;
 				}
 			}
+			
+			numberOfTries++;
 			
 			/*
 			 * Only do stuff below this on the last two guesses
@@ -85,7 +87,7 @@ public class GuessingGame
 			 * Guess the bottom number
 			 */
 			
-			if (maxThreshold - minThreshold == 1) {
+			if (maxThreshold - minThreshold <= 1) {
 				System.out.println("Is your number " + minThreshold + "? (press y/n)");
 				response = kbd.next().charAt(0);
 				if (response == 'y') {
@@ -98,31 +100,20 @@ public class GuessingGame
 					kbd.close();
 					System.exit(0);
 				} else {
-					midThreshold += 1;
-					minThreshold += 1;
-				}
-			}
-			
-			numberOfTries++;
-			
-			// This chunk runs when it thinks that it knows the answer
-			if (maxThreshold - minThreshold == 0) {
-				System.out.println("Is your number " + midThreshold + "? (press y/n)");
-				response = kbd.next().charAt(0);
-				if (response == 'y') {
-					System.out.println("It took me " + numberOfTries + " guesses");
-					/*
-					 * Tell the user good game...
-					 * And yes, I did HAVE to use humor somewhere
-					 */
-					System.out.println("gg m8 #rekt");
-					kbd.close();
-					System.exit(0);
-				}
-				if (response == 'n') {
-					System.out.println("You're such a liar!");
-					kbd.close();
-					System.exit(0);
+					numberOfTries++;
+					System.out.println("Is your number " + maxThreshold + "? (press y/n)");
+					response = kbd.next().charAt(0);
+					if (response == 'y') {
+						System.out.println("It took me " + numberOfTries + " guesses");
+						System.out.println("gg m8 #rekt");
+						kbd.close();
+						System.exit(0);
+					}
+					if (response == 'n') {
+						System.out.println("You're such a liar!");
+						kbd.close();
+						System.exit(0);
+						}
 				}
 			}
 		}
